@@ -1,16 +1,4 @@
-variable "regions" {
-  type = string
-}
 
-variable "location" {
-  type        = string
-  description = "Azure location name"
-}
-
-variable "name_suffix" {
-  type        = string
-  description = "Name suffix for resource names"
-}
 
 variable "identity_token" { 
   type        = string 
