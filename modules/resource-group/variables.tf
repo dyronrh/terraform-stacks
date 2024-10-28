@@ -1,4 +1,4 @@
-variable "resource_group_name" {
+variable "name_suffix" {
   type = string
 }
 variable "location" {
