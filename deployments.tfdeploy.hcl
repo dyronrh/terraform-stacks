@@ -1,7 +1,7 @@
 # deployments.tfdeploy.hcl
 
 identity_token "azurerm" {
-  audience = ["api://AzureADTokenExchange/"]
+  audience = ["api://AzureADTokenExchange"]
 }
 
 deployment "dev" {
