@@ -9,6 +9,7 @@ required_providers {
 
 component "resource_group" {
   source = "azurerm/resources/azure//modules/resource_group"
+  version = "1.1.0"
 
   inputs = {
     location    = var.location
