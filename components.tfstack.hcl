@@ -18,34 +18,14 @@ provider "azurerm" "this" {
     client_id       = var.client_id
   }
 }
+component "resource_group" {
+  source = "./modules/resource-group"
 
-component "network" {
-  source  = "app.terraform.io/Natilik-Showcase/vnet/azurerm"
-  version = "2.0.2"
   inputs = {
-    location      = var.location
-    environment   = var.environment
-    vnet_name     = var.vnet_name
-    vnet_prefix   = var.vnet_prefix
-    subnet_name   = var.subnet_name
-    subnet_prefix = var.subnet_prefix
+    location    = var.location
+    resource_group_name = var.resource_group_name
   }
-  providers = {
-    azurerm = provider.azurerm.this
-  }
-}
 
-component "vm" {
-  source  = "app.terraform.io/Natilik-Showcase/vm/azurerm"
-  version = "2.0.1"
-  inputs = {
-    location      = var.location
-    environment   = var.environment
-    subnet_id     = component.network.subnet_id
-    vm_name       = var.vm_name
-    vm_username   = var.vm_username
-    vm_password   = var.vm_password
-  }
   providers = {
     azurerm = provider.azurerm.this
   }

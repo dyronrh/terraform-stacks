@@ -60,3 +60,18 @@ variable "client_id" {
   description = "The client ID for the identity."
   type        = string
 }
+
+variable "client_id" {
+  description = "The client ID for the identity."
+  type        = string
+}
+variable "tenant_id" {
+  description = "The client ID for the identity."
+  type        = string
+}
+
+
+variable "resource_group_name" {
+  description = "The client ID for the identity."
+  type        = string
+}
