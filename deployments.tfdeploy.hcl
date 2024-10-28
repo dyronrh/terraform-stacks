@@ -4,6 +4,7 @@ identity_token "azurerm" {
 
 deployment "development" {
   inputs = {
+    name_suffix    = "development"
     resource_group_name = "youtube-stacks"
     region              = "East US"
     address_space       = ["10.0.0.0/16"]

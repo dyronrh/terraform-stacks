@@ -13,3 +13,7 @@ variable "dns_servers" {
 variable "name" {
   type = string
 }
+variable "name_suffix" {
+  type        = string
+  description = "Name suffix for resources"
+}

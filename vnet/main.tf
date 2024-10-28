@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "resource_group" {
-  name     = "rg-stacks-${var.resource_group_name}"
+  name     = "rg-stacks-${var.resource_group_name}-${var.name_suffix}"
   location = var.region
 }
 resource "azurerm_virtual_network" "stacks-vnet" {
