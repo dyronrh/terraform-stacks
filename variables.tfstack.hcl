@@ -27,7 +27,7 @@ variable "client_id" {
 }
 
 
-variable "resource_group_name" {
-  description = "The client ID for the identity."
+variable "name_suffix" {
   type        = string
+  description = "Name suffix for resource names"
 }

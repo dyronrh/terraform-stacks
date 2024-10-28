@@ -7,13 +7,12 @@ required_providers {
   }
 }
 
-
 component "resource_group" {
   source = "./modules/resource-group"
 
   inputs = {
     location    = var.location
-    resource_group_name = var.resource_group_name
+    name_suffix = var.name_suffix
   }
 
   providers = {
