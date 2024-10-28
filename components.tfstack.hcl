@@ -7,13 +7,12 @@ required_providers {
   }
 }
 
-
 component "resource_group" {
-  source = "./modules/resource-group"
+  source = "azurerm/resources/azure//modules/resource_group"
 
   inputs = {
     location    = var.location
-    resource_group_name = var.resource_group_name
+    custom_name = var.resource_group_name
   }
 
   providers = {
