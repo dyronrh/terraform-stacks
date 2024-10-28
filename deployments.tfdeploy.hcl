@@ -11,6 +11,7 @@ deployment "dev" {
     subscription_id = "283b7b64-24dd-481d-98bf-a117f9168256"
     location        = "East US"
     environment     = "dev"
+    resource_group_name = "youtube"
   }
 }
 
