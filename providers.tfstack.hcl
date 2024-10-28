@@ -24,3 +24,4 @@ provider "azurerm" "this" {
     tenant_id       = var.tenant_id
   }
 }
+

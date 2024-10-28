@@ -1,26 +1,34 @@
+# deployments.tfdeploy.hcl
+
 identity_token "azurerm" {
-  audience = [ "api://AzureADTokenExchange" ]
+  audience = ["api://AzureADTokenExchange"]
 }
 
-deployment "development" {
+deployment "dev" {
   inputs = {
-    name_suffix    = "development"
-    resource_group_name = "youtube-stacks"
-    region              = "East US"
-    address_space       = ["10.0.0.0/16"]
-    dns_servers         = ["8.8.8.8", "8.8.8.4"]
-    name                =  "youtube-rg-vnet"
- 
     identity_token  = identity_token.azurerm.jwt
-    client_id = "be9ec410-ac7e-4f80-97bd-01c7914adb72"
+    client_id       = "64299473-5821-4715-b3e1-071fa254d83f"
     subscription_id = "283b7b64-24dd-481d-98bf-a117f9168256"
-    tenant_id = "3c560798-40da-4a08-84fa-ca3b97b53647"
+    location        = "East US"
+    environment     = "dev"
+    vnet_name       = "vnet-stacks-dev"
+    vnet_prefix     = "10.1.0.0/16"
+    subnet_name     = "snet-stacks-dev"
+    subnet_prefix   = "10.1.1.0/24"
+    vm_name         = "vm-stacks"
+    vm_username     = "stacks"
+    vm_password     = "Password1234!"
   }
 }
 
-orchestrate "auto_approve" "applyable" {
+orchestrate "auto_approve" "dev_only" {
+  check {
+    condition = context.plan.deployment == deployment.dev
+    reason    = "Plan is not targeting dev."
+  }
+
   check {
     condition = context.plan.applyable
-    reason    = "Changes are not applyable"
+    reason    = "Changes are not applyable."
   }
 }
